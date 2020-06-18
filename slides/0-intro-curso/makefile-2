@@ -1,0 +1,44 @@
+all:
+	cp -r figs /tmp/
+	#pandoc -V theme=league -V transition=cube -s --mathjax -i -t revealjs sample.md -o example16d.html
+	#pandoc -V theme=beige -V center=false -V transition=linear -s --mathjax -i -t revealjs \
+	/usr/bin/pandoc -s --css=mycss.css -V theme=beige -s --mathjax -i -t revealjs \
+	sample3.md -o myslides.html --slide-level 2 # --toc
+
+	/usr/bin/pandoc -s --css=mycss.css -V theme=beige -s \
+        --filter pandoc-katex --css https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css \
+        -i -t revealjs \
+	sample3.md -o myslides.html --slide-level 2 # --toc
+
+	/usr/bin/pandoc --from=markdown-raw_tex+tex_math_single_backslash --to=html \
+        --filter pandoc-katex --css https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css \
+        sample4-simplified.md > saida.html
+	/usr/bin/pandoc -s  --metadata title="katex" --metadata to="html" --filter ./pandoc-plot --filter ./filter-comments-new.py --katex --from=markdown-raw_tex+tex_math_single_backslash --to=html \
+        sample4-simplified.md > saida_katex.html
+	/usr/bin/pandoc -s --metadata title="mjax" --metadata to="html" --filter ./pandoc-plot --filter ./filter-comments-new.py --mathjax --from=markdown-raw_tex+tex_math_single_backslash --to=html \
+        sample4-simplified.md > saida_mjax.html
+        #pandoc-plot filter
+
+	#sample.md -o example16d.html --slide-level 2 # --toc
+	# remember to press 's' and go to 'speaker mode'
+	# https://github.com/jgm/pandoc/wiki/Using-pandoc-to-produce-reveal.js-slides
+#	pandoc --listings -H header.tex\
+#          -V theme:Warsaw -V colortheme:seahorse\
+#					-V classoption=notes \
+#          -s -t beamer -f markdown \
+#					-o slides.pdf sample.md
+	#pandoc -s -H header.tex -t beamer sample2.md -V theme:metropolis -o slides.pdf
+	#pandoc -s -H header.tex -t beamer sample2.md -V theme:Warsaw -V colortheme:seahorse --slide-level 2 -o slides.pdf
+	#pandoc -s -F pandoc-crossref -H header.tex -t beamer sample.md -V theme:metropolis --slide-level 2 -o slides.pdf
+	/usr/bin/pandoc --toc --self-contained --filter pandoc-latex-color \
+	    --filter ./pandoc-plot --filter ./filter-comments-new.py -s \
+			--metadata to="beamer" \
+			-F pandoc-crossref -H header.tex -t beamer sample4-simplified.md \
+			 -V theme:Warsaw --slide-level 2 -o saida_beamer.pdf
+	/usr/bin/pandoc --toc --self-contained --filter pandoc-latex-color -s -F pandoc-crossref -H header.tex -t beamer sample3.md -V theme:Warsaw --slide-level 2 -o myslides.pdf
+#-f markdown
+#-V theme:Warsaw -V colortheme:seahorse\
+#
+#	pandoc --mathjax --template impress-template.html -V impress-url=impress.js -s -t html5 --section-divs -o impress.html slides.txt
+# https://github.com/jgm/pandoc/wiki/Creating-impress.js-slide-shows-with-pandoc
+#	pandoc --template impress-template.html -V impress-url=impress.js -s -t html5 --section-divs -o impress.html impress.txt
