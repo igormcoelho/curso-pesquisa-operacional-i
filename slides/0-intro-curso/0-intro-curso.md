@@ -134,13 +134,13 @@ Tipo = Sinc./Assinc.
 
 | Data       | Atividade                       | Tipo   |
 | :---       |   :----                         | :---   |
-| 29/06/2020 |  Introdução à PO                |  Sinc. |
-| 06/07/2020 |  (Meta-)Heurísticas Parte 1     |  Sinc. |
+| 29/06/2020 |  Introdução a PO e Modelagem    |  Sinc. |
+| 06/07/2020 |  Conceitos Otimização Comb.     |  Sinc. |
 | 13/07/2020 |  Programação Linear e Inteira   |  Sinc. |
 | 20/07/2020 |  *                              |  Sinc. |
 | 27/07/2020 |  Prática                        |  Sinc. |
 | 03/08/2020 |  Prova Escrita (E)              |  Sinc. |
-| 10/08/2020 |  (Meta-)Heurísticas Parte 2     |  Sinc. |
+| 10/08/2020 |  (Meta-)Heurísticas             |  Sinc. |
 | 17/08/2020 |  *                              |  Sinc. |
 | 24/08/2020 |  Apresentação (I)               |  Sinc. |
 | 31/08/2020 |  Lançamento Notas               |  Sinc. |

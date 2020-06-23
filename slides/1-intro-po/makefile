@@ -1,20 +1,28 @@
+MDFILE=1-intro-po.md
+OUTHTML=index.html
+OUTPDF=1-intro-po.pdf
+FILTERS=--filter pandoc-katex  --filter ../../libs/pandoc-plot \
+            --filter ../../libs/comments-to.py #--filter pandoc-latex-color
+
 all: deps
-	/usr/bin/pandoc  -V theme=beige -s -i -t revealjs \
-	--mathjax \
-	1-basics.md -o index-mathjax.html --slide-level 2 # --toc
-	#
+	cp -r figs/ /tmp/
 	/usr/bin/pandoc -s --self-contained -V theme=beige -s -t revealjs \
-        --filter pandoc-katex --css katex.min.css \
-	1-basics.md -o index.html --slide-level 2 # --toc
+	--metadata to="revealjs" $(FILTERS) --css katex.min.css \
+	$(MDFILE) -o $(OUTHTML) --slide-level 2
 	#
 	#
+	# -F pandoc-crossref
 	/usr/bin/pandoc --toc -s --self-contained -V theme:Warsaw -t beamer \
-	    --filter pandoc-latex-color -F pandoc-crossref -H header.tex \
-			1-basics.md -o beamer-1-basics.pdf --slide-level 2
+	--metadata to="beamer" $(FILTERS)  -H header.tex \
+	$(MDFILE) -o $(OUTPDF) --slide-level 2
 
 run:
 	python3 -m http.server 8081
 	#python2 -m SimpleHTTPServer 8081
+
+env:
+	source ~/.cargo/env
+	conda activate
 
 deps:
 	wget -nc https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
