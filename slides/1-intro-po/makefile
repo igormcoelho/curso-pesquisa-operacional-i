@@ -1,13 +1,14 @@
 MDFILE=1-intro-po.md
 OUTHTML=index.html
 OUTPDF=1-intro-po.pdf
-FILTERS=--filter pandoc-katex  --filter ../../libs/pandoc-plot \
+FILTERS= --filter ../../libs/pandoc-plot \
             --filter ../../libs/comments-to.py #--filter pandoc-latex-color
+FILTERS_WEB= --filter pandoc-katex  
 
 all: deps
 	cp -r figs/ /tmp/
 	/usr/bin/pandoc -s --self-contained -V theme=beige -s -t revealjs \
-	--metadata to="revealjs" $(FILTERS) --css katex.min.css \
+	--metadata to="revealjs" $(FILTERS) $(FILTERS_WEB) --css katex.min.css \
 	$(MDFILE) -o $(OUTHTML) --slide-level 2
 	#
 	#

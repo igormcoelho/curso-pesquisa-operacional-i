@@ -158,7 +158,71 @@ força aérea americana.
 
 ## Diagrama de um projeto de PO
 
-![Modelo vs Mundo Real. Retirado de [1]](2020-06-22-22-54-18.png)
+![Modelo vs Mundo Real. *Retirado de [1]*](2020-06-22-22-54-18.png)
+
+
+------
+
+## Construindo um modelo matemático
+
+- **Passo Fundamental:** Ouvir aquele que lida com o problema real.
+- **Passo 1:** Descobrir o que deve ser determinado (variáveis do problema).
+- **Passo 2:** Descobrir o que está disponível (dados do problema).
+- **Passo 3:** Reproduzir os caminhos que levam a uma solução (equações/formulações)
+
+
+# Conceitos de Otimização
+
+-----
+
+## Problema de Otimização
+
+- A busca de uma *solução mais adequada* entre diversas *soluções alternativas* traz consigo os elementos de um **Problema de Otimização**
+- Um critério de avaliação das soluções alternativas, o qual nos
+permite dizer que uma solução é “melhor” que outra (objetivo ou subjetivo).
+- A este critério de avaliação chamamos de **função objetivo**, que buscamos otimizar, ou seja, *maximizar* ou *minimizar*.
+- Por outro lado, as soluções alternativas devem ser passíveis de execução indicando a presença de restrições que devem ser respeitadas.
+
+
+------
+
+## Problema de Otimização
+
+- De outra forma: temos uma função $z$, chamada função objetivo, definida no conjunto de soluções alternativas (viáveis), digamos $\mathcal{S}_f$, tipicamente mapeada nos reais: $z : \mathcal{S}_f \mapsto \mathbb{R}$
+- Um problema de otimização (de *minimização*) é definido por:
+
+$$min\; z(s)$$
+$$sujeito\;a: \; s \in \mathcal{S}_f$$
+
+
+------
+
+## Problema de Otimização
+
+Dependendo do comportamento de $z(s)$ e de como o conjunto $\mathcal{S}_f$ é descrito, temos diferentes classes de problemas de otimização, para os quais uma variedade de métodos de solução tem sido desenvolvida:
+
+- Otimização linear.
+- Otimização não linear.
+- Otimização Inteira.
+- Controle ótimo.
+
+
+# Aplicações de PO
+
+------
+
+## Algumas aplicações
+
+- indústria de petróleo: extração, refinamento, mistura e distribuição.
+- indústria de alimentos: ração animal (problema da mistura).
+- planejamento da produção: dimensionamento de lotes (o que, quando e quanto produzir?).
+- indústria siderúrgica: ligas metálicas (problema da mistura).
+- indústria de papel: otimização do processo de cortagem de bobinas.
+- indústrias de móveis: otimização do processo de cortagem de placas retangulares.
+- aplicações financeiras: otimização do fluxo de caixa, análise de carteiras de investimento.
+
+
+
 
 
 ## teste plotly
