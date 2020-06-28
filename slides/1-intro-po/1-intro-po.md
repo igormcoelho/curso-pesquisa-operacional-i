@@ -222,6 +222,19 @@ Dependendo do comportamento de $z(s)$ e de como o conjunto $\mathcal{S}_f$ é de
 - aplicações financeiras: otimização do fluxo de caixa, análise de carteiras de investimento.
 
 
+--------
+
+## Níveis de planejamento
+
+Quando se fala em planejamento, se consideram três tipos, de acordo com a duração:
+
+- Estratégico (longo prazo)
+- Tático (médio prazo)
+- Operacional (curto prazo)
+
+Mais detalhes serão discutidos para cada problema abordado no curso.
+
+
 # Tarefa
 
 -----
