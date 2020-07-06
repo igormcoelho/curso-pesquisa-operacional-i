@@ -61,6 +61,28 @@ def draw_fig(filename):
 			x0=0, y0=5400, x1=2700, y1=0,
             line=dict(color="Red", width=3)
 	))
+	#fig.add_shape(
+    #    dict(type="line",
+	#		x0=0, y0=0, x1=500, y1=1000,
+    #        line=dict(color="Blue", width=3)
+	#))
+	fig.add_annotation( # add a text callout with arrow
+    	text="Ótimo", x=1500, y=1250, arrowhead=1, showarrow=True
+	)
+	arrow = go.layout.Annotation(dict(
+                x= 250,
+                y= 500,
+                xref="x", yref="y",
+                text="",
+                showarrow=True,
+                axref = "x", ayref='y',
+                ax= 0,
+                ay= 0,
+                arrowhead = 3,
+                arrowwidth=1.5,
+                arrowcolor='rgb(255,51,0)',)
+            )
 	fig.update_layout( margin=dict(l=0, r=0, t=50, b=0) )
+	fig.update_layout( annotations = [arrow])
 	fig.write_image(filename)
 	return fig

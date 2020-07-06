@@ -512,6 +512,8 @@ $$ 0 \leq x 2 \leq 6000 $$
 
 ## Visualização Gráfica com Plotly
 
+O que significam as três linhas vermelhas?
+
 <!-- BEGIN COMMENT -->
 
 ```python {cmd=true hide=true}
@@ -526,7 +528,7 @@ fig = draw_fig('figs/fig_plotly_model3.png')
 ```{.plotly_python caption="Visualização Gráfica" width=350}
 from figs.fig_plotly_line1 import draw_fig
 fig = draw_fig('figs/fig_plotly_model3.png')
-# nocache 5
+# nocache 7
 ```
 <!-- END COMMENT TO revealjs -->
 
