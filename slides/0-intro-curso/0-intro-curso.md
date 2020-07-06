@@ -153,7 +153,7 @@ Tipo = Sinc./Assinc.
 Para o andamento do curso e reprodução dos exemplos oferecidos, serão necessários alguns softwares, como:
 
 - Python3 (preferência pela Anaconda3 com todos pacotes)
-   * pacote `python-mip`: pip3 install python-mip
+   * pacote `python-mip`: pip3 install mip
 - Compilador C++ com suporte C++20 (GCC-10.1 ou clang-11)
 
 No GNU/Linux, em especial família Debian/Ubuntu, a instalação é direta utilizando o sistema de pacotes `apt` ou executáveis providos nos respectivos sites dos projetos. No Windows é recomendado instalar versões nativas. Ou opção para utilizar os mesmos pacotes Linux no Windows, é utilizar o WSL para simular um terminal Ubuntu:
