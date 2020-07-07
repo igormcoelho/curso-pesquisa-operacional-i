@@ -15,7 +15,7 @@ def draw_fig(filename):
 	px.width = 100
 	px.height = 100
 	xy = pd.DataFrame({'x1':x, 'x2': y})
-	fig = px.area(xy, x="x1", y="x2")
+	fig = px.area(xy, x="x1", y="x2") 
 	fig.add_shape(
         dict(type="line",
 			x0=0, y0=0, x1=0, y1=7000,
@@ -47,12 +47,10 @@ def draw_fig(filename):
             line=dict(color="RoyalBlue", width=3)
 	))
 	fig.add_shape(
-        {
-			type="line",
+        dict(type="line",
 			x0=0, y0=4250, x1=2125, y1=0,
-            line={color="Red", width=3}
-		}
-	)
+            line=dict(color="Red", width=3)
+	))
 	fig.add_shape(
         dict(type="line",
 			x0=0, y0=2000, x1=1000, y1=0,
