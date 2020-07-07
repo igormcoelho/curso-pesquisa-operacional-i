@@ -59,7 +59,7 @@ O simplex é um algoritmo reconhecidamente bem-sucedido, tendo sido implementado
 
 ## Aplicações no planejamento da produção e outros métodos
 
-Em 1939, L. Kantorovich[^4] modelou e resolveu matematicamente problemas de planejamento da produção na União Soviética, ganhando o prêmio Nobel de Economia em 1975. 
+Em 1939, L. Kantorovich[^4] modelou e resolveu matematicamente problemas de planejamento da produção na União Soviética, ganhando o prêmio Nobel de Economia em 1975.
 
 Outros métodos para resolução: Métodos Elipsoidais de L. Khachian[^5] em 1978; Métodos de Pontos Interiores de N. Karmarkar[^6] em 1984; embora elegantes (com garantia de tempo polinomial), são tipicamente menos eficientes _na prática_ que o simplex.
 
@@ -91,14 +91,14 @@ Consideramos, neste caso, uma função objetivo $f(x)$ de maximização, e restr
 
 Restrições do tipo $\leq$ (ou $\geq$) podem ser facilmente transformadas em igualdades, com a introdução de novas variáveis (não-negativas) de folga/falta (do inglês, _slack_/_surplus_):
 
-$$\sum_{j=1}^p a_{ij}x_j \leq b_i \iff 
-\begin{cases} 
+$$\sum_{j=1}^p a_{ij}x_j \leq b_i \iff
+\begin{cases}
 \sum_{j=1}^p a_{ij}x_j + x_{p+1} = b_i,\\
 x_{p+i} \geq 0
 \end{cases} $$
 
-$$\sum_{j=1}^p a_{ij}x_j \geq b_i \iff 
-\begin{cases} 
+$$\sum_{j=1}^p a_{ij}x_j \geq b_i \iff
+\begin{cases}
 \sum_{j=1}^p a_{ij}x_j - x_{p+1} = b_i,\\
 x_{p+i} \geq 0
 \end{cases} $$
@@ -127,7 +127,7 @@ Demais técnicas de conversão de variáveis/restrições:
 - Existem variáveis não positivas (seja $x_k \leq 0$):
    * **Solução:** Substituir por variável $x_k' \geq 0$ tal que $x_k' = -x_k$
 
-- Existem variáveis livres (seja $x_k \in \mathbb{R}$): 
+- Existem variáveis livres (seja $x_k \in \mathbb{R}$):
    * **Solução:** substituir $x_k$ por $x_k' - x_k''$, tal que $x_k' \geq 0$ e $x_k'' \geq 0$
 
 - Um problema de minimização pode ser convertido em maximização (vice-versa):
@@ -171,7 +171,7 @@ max & x_1 & +2x_2 \\
     & x_1 &       & \leq 2\\
     &     &  x_2  & \leq 2\\
     & x_1 & +x_2  & \leq 3\\
-    & x_1,&  x_2  & \geq 0\\ 
+    & x_1,&  x_2  & \geq 0\\
 \end{matrix}
 \;
 \Rightarrow
@@ -220,7 +220,7 @@ $$
 
 ## Matriz básica e não-básica
 
-A matriz $\mathcal{A}_{m \times n}$ pode ser particionada da seguinte maneira (supondo $posto(\mathcal{A})=m$, com $m$ colunas independentes): 
+A matriz $\mathcal{A}_{m \times n}$ pode ser particionada da seguinte maneira (supondo $posto(\mathcal{A})=m$, com $m$ colunas independentes):
 
 $$\mathcal{A} = ( \mathcal{B} \; \mathcal{N} )$$
 
@@ -244,7 +244,7 @@ Faremos $x_N=0$ e $\bar{x}_B = \mathcal{B}^{-1}b$.
 
 
 Definição 2.2 (Maculan&Fampa)
-: $\bar{x}$ é uma **solução básica**, se $\bar{x}^T = (\bar{x}_B^T \; 0)$. 
+: $\bar{x}$ é uma **solução básica**, se $\bar{x}^T = (\bar{x}_B^T \; 0)$.
 
 Quando $\bar{x}_B \geq 0$, será uma **solução básica viável**.
 
@@ -291,11 +291,11 @@ Focaremos agora na versão do Simplex por tabelas, após apresentar um pseudo-c�
 
 -----
 
-## Simplex para problemas de $\leq$ 
+## Simplex para problemas de $\leq$
 
 O Simplex consiste de duas fases, onde a primeira consiste em encontrar uma base $\mathcal{B}$.
 
-Para problemas com restrições $\leq$, as variáveis de folga introduzidas no modelo irão naturalmente formar uma matriz identidade $\mathcal{I}_m$. 
+Para problemas com restrições $\leq$, as variáveis de folga introduzidas no modelo irão naturalmente formar uma matriz identidade $\mathcal{I}_m$.
 
 Assim, escolheremos essas variáveis de folga como _variáveis básicas_, atribuindo valor zero a todas as demais _variáveis não-básicas_ (originais do modelo).
 Teremos assim uma base inversível $\mathcal{B} = \mathcal{I}_m$.
@@ -317,7 +317,7 @@ $$
       - $\lambda^T = c_B^T\mathcal{B}^{-1}$
    1. Custos relativos
       - $\hat{c}_{N(j)}=c_{N(j)} - \lambda^T a_{N(j)}, \; j=1,2,...,n-m$
-   1. Determinação de variável a entrar na base 
+   1. Determinação de variável a entrar na base
       - $\hat{c}_{N(k)} = min\{\hat{c}_{N(j)}, j=1,...,n-m\}$ (a variável $x_{N(k)}$ entra na base)
 3. Passo 3: teste de otimalidade (minimização)
    - Se $\hat{c}_{N(k)} \geq 0$, então: _pare_ (solução atual é ótima!).
@@ -337,6 +337,11 @@ $$
    - não-básica: $\mathcal{N}=(a_{N(1)}\;...\;a_{N(k-1)}\;a_{B(\ell)}\;a_{N(k+1)}\;...\;a_{N(n-m)})$
    - incrementa iteração e volte ao Passo 1
 
+--------
+
+## Exemplo do Simplex
+
+Vide "Exemplo 2.26" do livro-texto de Arenales (página 85).
 
 # Tableau Simplex
 
@@ -344,7 +349,7 @@ $$
 
 ## Simplex por Tabelas
 
-Uma versão prática do Simplex pode ser feita com tabelas (_tableau simplex_). 
+Uma versão prática do Simplex pode ser feita com tabelas (_tableau simplex_).
 
 No caso de não haver apenas restrições $\leq$, é necessário criar _variáveis artificiais_, bem como um novo problema de otimização que busca _minimizar_ o valor delas (a zero!). Nesse PPL estendido, o peso inicial é $0$ para as variáveis do PPL original, e $1$ para as artificiais.
 Quando a otimalidade é atingida nesse modelo (e as variáveis artificiais saem da base), podemos cortar as variáveis artificiais, e retornar ao modelo original (fase 2).
