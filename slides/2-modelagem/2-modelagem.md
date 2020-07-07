@@ -510,6 +510,16 @@ $$ 0 \leq x 2 \leq 6000 $$
 
 ------
 
+## Dica para Cálculo do Gradiente
+
+Lembramos que a direção e sentido de **máximo** crescimento de uma função $f$ é determinada por seu gradiente $\nabla f(x) = \left( \frac{\partial f(x)}{\partial x_1}, \frac{\partial f(x)}{\partial x_2}, ..., \frac{\partial f(x)}{\partial x_n} \right)$.
+
+Assim, para $\max z(x_1 , x_2 ) = 100x_1 + 50x_2$, temos $\nabla z(x)=(100,50)$. Caso fosse minimização, poderíamos transformar o problema em maximização (e obter valores negativos no vetor gradiente).
+
+Naturalmente, o feixe de retas da função objetivo é perpendicular ao vetor gradiente.
+
+------
+
 ## Visualização Gráfica com Plotly
 
 O que significam as três linhas vermelhas?
@@ -528,7 +538,7 @@ fig = draw_fig('figs/fig_plotly_model3.png')
 ```{.plotly_python caption="Visualização Gráfica" width=350}
 from figs.fig_plotly_line1 import draw_fig
 fig = draw_fig('figs/fig_plotly_model3.png')
-# nocache 7
+# nocache 8
 ```
 <!-- END COMMENT TO revealjs -->
 

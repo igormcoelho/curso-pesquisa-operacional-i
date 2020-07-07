@@ -47,11 +47,11 @@ def draw_fig(filename):
             line=dict(color="RoyalBlue", width=3)
 	))
 	fig.add_shape(
-        {
+        dict(
 			type="line",
 			x0=0, y0=4250, x1=2125, y1=0,
-            line={color="Red", width=3}
-		}
+            line=dict(color="Red", width=3)
+		)
 	)
 	fig.add_shape(
         dict(type="line",
