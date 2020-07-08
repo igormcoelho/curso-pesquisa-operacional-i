@@ -337,11 +337,214 @@ $$
    - não-básica: $\mathcal{N}=(a_{N(1)}\;...\;a_{N(k-1)}\;a_{B(\ell)}\;a_{N(k+1)}\;...\;a_{N(n-m)})$
    - incrementa iteração e volte ao Passo 1
 
+
+# Exemplo com Python
+
 --------
 
 ## Exemplo do Simplex
 
 Vide "Exemplo 2.26" do livro-texto de Arenales (página 85).
+
+$$
+\begin{matrix}
+minimizar \; f(x_0,x_1) = & -x_0 & -2x_1\\
+                       & x_0 & +x_1 & \leq 6\\
+                       & x_0 & -x_1 & \leq 4\\
+                       & -x_0 & +x_1& \leq 4\\
+                       & x_0, & x_1 & \geq 0\\
+\end{matrix}
+$$
+
+**Solução Básica Ótima:** $x_B=(x_0, x_3, x_1)$, tal que $f(x_B) = -11$
+
+------
+
+## Exemplo com Python (dados do problema)
+
+Primeiramente, adicionamos restrições de folga $\leq$ (novas variáveis $x_2$, $x_3$ e $x_4$), e obtemos uma matriz identidade $\mathcal{I}_3$ como base $\mathcal{B}$ para o passo 1 do Simplex: $B=(2,3,4)$.
+
+Dados do problema:
+
+|      | $x_0$  | $x_1$  | $x_2$  | $x_3$  | $x_4$  | $b$   |
+| :--  | :-- | :-- | :-- | :-- | :-- | :-- |
+| $\mathcal{A}$    | 1   | 1   | 1   |  0  | 0   |  6  |
+| ^    | 1   | -1  | 0   |  1  | 0   |  4  |
+| ^    | -1  | 1   | 0   |  0  | 1   |  4  |
+| $c$    | -1  | -2  | 0   |  0  | 0   | Min $f$  |
+
+-----------
+
+## Exemplo com Python (construindo base)
+
+```python
+import numpy as np
+A=np.array([[1,1,1,0,0],[1,-1,0,1,0],[-1,1,0,0,1]])
+b=np.array([6,4,4])
+c=np.array([-1, -2, 0, 0, 0])
+#
+IB=[2,3,4]  # variaveis "de folga" na base
+IN=[0,1]    # variaveis "originais" não-básicas
+# Construindo a Base a partir das variáveis dadas
+Base=np.transpose(np.asarray([A[:,IB[0]], A[:,IB[1]],
+                                           A[:,IB[2]]]))
+#>>> Base
+#array([[1, 0, 0],
+#       [0, 1, 0],
+#       [0, 0, 1]])
+```
+
+
+-----------
+
+## Exemplo com Python (primeira iteração - passo 1)
+
+Passo 1 - Cálculo da solução básica (resolva $\mathcal{B}\cdot x_B = b$) e obtenha:
+ $$\hat{x}_B=
+ \begin{pmatrix}
+ 6\\4\\4\\
+ \end{pmatrix}
+ $$
+
+```python
+x = np.linalg.inv(Base).dot(b)
+#>>> x
+#array([6., 4., 4.])
+```
+
+-----------
+
+## Exemplo com Python (primeira iteração - passo 2)
+
+Passo 2 - Calcule custos relativos (para $N_0$ e $N_1$): $c_B=(c_{B(0)}, c_{B(1)}, c_{B(2)})$, $\mathcal{B}^T\lambda=c_B$, onde $\lambda^T=(0,0,0)$.
+
+```python
+cB = [ c[IB[0]], c[IB[1]], c[IB[2]] ] 
+# calcula "lambda" (chamado 'u' aqui)
+u = np.linalg.inv(np.transpose(Base)).dot(cB)
+#>>> u
+#array([0., 0., 0.])
+```
+
+::::::::::::: {.columns}
+
+::::: {.column width=50%}
+
+- $\hat{c}_0 = c_0 - \lambda^T a_0 = -1$ 
+
+```python
+a0 = A[:,0]
+cr0 = c[0] - u.dot(a0)
+#>>> cr0
+#-1.0
+```
+
+:::::
+
+::::: {.column width=50%}
+
+- $\hat{c}_1 = c_1 - \lambda^T a_1 = -2$ 
+
+```python
+a1 = A[:,1]
+cr1 = c[1] - u.dot(a1)
+#>>> cr1
+#-2.0
+```
+($x_{B(1)}=x_1$ entra na base) 
+
+:::::
+
+:::::::::::::
+
+
+-----------
+
+## Exemplo com Python (primeira iteração - passos 3-6)
+
+Passo 3 dispensado ($\hat{c}_1 = -2 < 0$), solução não é ótima! Vamos ao passo 4 para cálculo da direção simplex: resolva $\mathcal{B}y=a_1$ e obtenha $y^T=(1\;-1\;\;1)$.
+
+```python
+y = np.linalg.inv(Base).dot(a1)
+#>>> y
+#array([ 1., -1.,  1.])
+#>>> x
+#array([6., 4., 4.])
+#>>> x/y
+#array([ 6., -4.,  4.])
+```
+
+Escolhemos $\hat{\varepsilon}=\frac{\hat{x}_{B(2)}}{y_2}=4$, então $x_{B(2)}=x_4$ sai da base: $B=(2,3,1)$, $N=(0,4)$, $f(x) = f(\hat{x}) + \hat{c}_{N(k)}\hat{\varepsilon} = 0 -2\times 4 = -8$.
+
+
+-----------
+
+## Exemplo com Python (segunda iteração - passos 1-6)
+
+Passo 1 - Cálculo da solução básica (resolva $\mathcal{B}\cdot x_B = b$) e obtenha:
+ $$\hat{x}_B=
+ \begin{pmatrix}
+ 2\\8\\4\\
+ \end{pmatrix}
+ $$
+
+```python
+IB=[2,3,1]  # variaveis na base
+IN=[0,4]    # variaveis fora da base
+# Construindo a Base a partir das variáveis dadas
+Base=np.transpose(np.asarray([A[:,IB[0]], A[:,IB[1]],
+                                           A[:,IB[2]]]))
+x = np.linalg.inv(Base).dot(b)
+#>>> x
+#array([2., 8., 4.])
+```
+
+Avance nos passos 2-6 e obtenha: $B=(0,3,2)$, $N=(2,4)$.
+
+-----------
+
+## Exemplo com Python (terceira iteração)
+
+Passo 1 - Cálculo da solução básica (resolva $\mathcal{B}\cdot x_B = b$) e obtenha:
+ $$\hat{x}_B=
+ \begin{pmatrix}
+ 1\\8\\5\\
+ \end{pmatrix}
+ $$
+
+```python
+IB=[0,3,1]  # variaveis na base
+IN=[2,4]    # variaveis fora da base
+# Construindo a Base a partir das variáveis dadas
+Base=np.transpose(np.asarray([A[:,IB[0]], A[:,IB[1]],
+                                           A[:,IB[2]]]))
+x = np.linalg.inv(Base).dot(b)
+#>>> x
+#array([1., 8., 5.])
+```
+
+Avance ao passo 2 e descubra que solução é ótima!
+
+
+-----------
+
+## Exemplo com Python (solução ótima)
+
+Obtenha valor $f(x)=-11$ na solução ótima $\hat{x}^T=(1,5,0,8,0)$:
+
+```python
+IB=[0,3,1]  # variaveis na base
+IN=[2,4]    # variaveis fora da base
+# Construindo a Base a partir das variáveis dadas
+Base=np.transpose(np.asarray([A[:,IB[0]], A[:,IB[1]],
+                                             A[:,IB[2]]]))
+x = np.linalg.inv(Base).dot(b)
+#>>> x
+#array([1., 8., 5.])
+cB = [ c[IB[0]], c[IB[1]], c[IB[2]] ] 
+#>>> sum(cB*x)
+#-11.0
+```
 
 # Tableau Simplex
 
