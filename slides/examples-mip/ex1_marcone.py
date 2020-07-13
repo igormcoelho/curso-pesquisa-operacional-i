@@ -18,3 +18,5 @@ m += ((5*x1 + 9*x2) <= 45)
 status = m.optimize() #(max_seconds=300)
 
 print("x1 =", x1.x, " x2 =", x2.x, " status =", status, " obj =",m.objective_value)
+
+m.write("ex1_marcone.lp")

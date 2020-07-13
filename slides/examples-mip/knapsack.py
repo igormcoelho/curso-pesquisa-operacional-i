@@ -4,8 +4,8 @@
 #
 from mip import Model, xsum, maximize, BINARY
 
-p = [10, 13, 18, 31, 7, 15]
-w = [11, 15, 20, 35, 10, 33]
+p = [10, 13, 9, 31, 7, 15]
+w = [11, 15, 10, 35, 10, 33]
 c, I = 47, range(len(w))
 
 m = Model("knapsack")
