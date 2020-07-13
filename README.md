@@ -8,7 +8,7 @@ Tópicos:
    * Material complementar: [Slides Prof. Marcone (Modelagem-P2)](./slides/thirdparty/Marcone-Modelagem-Parte-2.pdf)
 3. [Simplex](slides/3-simplex/3-simplex.md): [PDF](slides/3-simplex/3-simplex.pdf) [Online](https://igormcoelho.github.io/curso-pesquisa-operacional-i/slides/3-simplex/index.html)
    * Material complementar: [Slides Prof. Marcone (Tab.Simplex)](./slides/thirdparty/Marcone-SIMPLEX.pdf)
-4. [MIP](slides/3-simplex/4-mip.md): [PDF](slides/4-mip/4-mip.pdf) [Online](https://igormcoelho.github.io/curso-pesquisa-operacional-i/slides/4-mip/index.html)
+4. [Programação Linear Inteira](slides/3-simplex/4-mip.md): [PDF](slides/4-mip/4-mip.pdf) [Online](https://igormcoelho.github.io/curso-pesquisa-operacional-i/slides/4-mip/index.html)
    * Material complementar: [Slides Prof. Marcone (B&B)](./slides/thirdparty/Marcone-Branch-and-Bound.ppt)
 
 - Extras:
