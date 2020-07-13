@@ -99,6 +99,9 @@ A abordagem padrão consiste em utilizar uma estratégia de enumeração, chamad
 
 Veja o slide complementar do prof. Marcone, para uma apresentação com exemplo do método Branch&Bound.
 
+
+# Tarefas
+
 ------
 
 ## Implementação no Python-MIP
@@ -171,6 +174,14 @@ O valor ótimo esperado é $41$, com $x=(1,0,0,1,0,0)$.
 - substitua o tipo `BINARY` por `CONTINUOUS` nas variáveis (e faça a devida importação no python) e obtenha ótimo $42.7273$ com $x=(4.273,0,0,0,0,0)$.
 
 Analise o significado dessas modificações, bem como os valores de solução obtidos.
+
+------
+
+## Para a próxima aula
+
+Implemente os modelos do _Problema do Caminho Mínimo_ e _Problema do Fluxo Máximo_ utilizando o `python-mip`.
+
+**Dica:** observe os modelos existentes no material complementar do curso (apostila do prof. Marcone Jamilson Freitas Souza).
 
 ------
 
