@@ -54,7 +54,9 @@ Note que, no PPL abaixo, as variáveis $x_i$ podem assumir valores fracionários
 $$
 maximizar \; \sum_{i\in\mathcal{I}} p_i x_i
 $$
+
 _Sujeito a:_
+
 $$
 \begin{array}{cc}
 \sum_{i\in\mathcal{I}} w_i x_i \leq Q & \\
@@ -73,7 +75,9 @@ Na prática, pode ser desejável que os itens não possam ser divididos. Em outr
 $$
 maximizar \; \sum_{i\in\mathcal{I}} p_i x_i
 $$
+
 _Sujeito a:_
+
 $$
 \begin{array}{cc}
 \sum_{i\in\mathcal{I}} w_i x_i \leq Q & \\
