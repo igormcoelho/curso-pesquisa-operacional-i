@@ -1750,6 +1750,7 @@ font-size: 1em;
 <li>Livro Nelson Maculan e Marcia Fampa</li>
 <li>Livro-texto do curso</li>
 <li>[2] Tutorial ilectures (https://igormcoelho.github.io/ilectures-pandoc/)</li>
+<li>Vitor Nazário Coelho e Haroldo Gambini pelas dicas no Python-MIP e Gurobi</li>
 </ul>
 </section>
 <section id="fundamentos-necessários" class="slide level2">
@@ -1817,41 +1818,72 @@ x_i \in \mathbb{Z}_{\geq 0} &amp; \forall i \in \mathcal{I}
 <p>Para instalar o <code>python-mip</code> no python3: <code>pip install mip</code>.</p>
 <p>Documentação online: https://python-mip.readthedocs.io/en/latest/examples.html</p>
 </section>
+<section id="python-mip-com-gurobi" class="slide level2">
+<h2>Python-MIP com Gurobi</h2>
+<p>É recomendável a instalação do Gurobi, para acelerar o processo de busca. Veja o link (linux, windows e mac):</p>
+<ul>
+<li>https://www.gurobi.com/documentation/quickstart.html</li>
+<li>https://www.gurobi.com/downloads/gurobi-optimizer (é necessário registrar!)</li>
+</ul>
+<p>Para <strong>Linux</strong> com <strong>Gurobi 9.0.2</strong>: <a href="https://www.gurobi.com/documentation/9.0/quickstart_linux/software_installation_guid.html">(LINK para gurobi.com)</a></p>
+<ul>
+<li>Baixe o arquivo <code>gurobi9.0.2_linux64.tar.gz</code>, e então:
+<ul>
+<li><code>tar xvfz gurobi9.0.2_linux64.tar.gz gurobi902/</code></li>
+<li><code>sudo mv gurobi902 /opt/</code> (instala na pasta <code>/opt</code>)</li>
+</ul></li>
+<li>Adicione em <code>~/.bashrc</code> os seguintes ambientes:</li>
+</ul>
+<pre><code>export GUROBI_HOME=/opt/gurobi902/linux64
+export PATH=$GUROBI_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$GUROBI_HOME/lib:$LD_LIBRARY_PATH</code></pre>
+</section>
+<section id="python-mip-com-gurobi-licença" class="slide level2">
+<h2>Python-MIP com Gurobi (Licença)</h2>
+<p>Pedindo licença acadêmica <a href="https://www.gurobi.com/documentation/9.0/quickstart_linux/retrieving_and_setting_up_.html#section:RetrieveLicense">(LINK para gurobi.com)</a>.</p>
+<p>Você obterá um código tipo <code>a13f503a-c5f6-11ea-b1bb-xxxxxxxxxxxx</code>, então basta executar:</p>
+<ul>
+<li><code>source ~/.bashrc</code> (carrega variáveis de ambiente)</li>
+<li><code>grbgetkey a13f503a-c5f6-11ea-b1bb-xxxxxxxxxxxx</code></li>
+<li><code>gurobi.sh</code> (executa o gurobi)</li>
+</ul>
+<p>O <code>python-mip</code> automaticamente usará o Gurobi se ele estiver disponível no sistema.</p>
+</section>
 <section id="python-mip-exemplo-mochila-0-1" class="slide level2">
 <h2>Python-MIP exemplo Mochila 0-1</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> mip <span class="im">import</span> Model, xsum, maximize, BINARY</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># dados do problema</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>p <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">13</span>, <span class="dv">9</span>,  <span class="dv">31</span>, <span class="dv">7</span>,  <span class="dv">15</span>]</span>
-<span id="cb1-5"><a href="#cb1-5"></a>w <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">35</span>, <span class="dv">10</span>, <span class="dv">33</span>]</span>
-<span id="cb1-6"><a href="#cb1-6"></a>Q, I <span class="op">=</span> <span class="dv">47</span>, <span class="bu">range</span>(<span class="bu">len</span>(w))</span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># cria um modelo</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>m <span class="op">=</span> Model(<span class="st">&quot;knapsack&quot;</span>)</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># adiciona variáveis &#39;x&#39; ao modelo &#39;m&#39;</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>x <span class="op">=</span> [m.add_var(var_type<span class="op">=</span>BINARY) <span class="cf">for</span> i <span class="kw">in</span> I]</span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># especifica a função objetivo do modelo &#39;m&#39;</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a>m.objective <span class="op">=</span> maximize(xsum(p[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> I))</span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># adiciona restrições ao modelo &#39;m&#39;</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>m <span class="op">+=</span> xsum(w[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> I) <span class="op">&lt;=</span> Q</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> mip <span class="im">import</span> Model, xsum, maximize, BINARY</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># dados do problema</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>p <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">13</span>, <span class="dv">9</span>,  <span class="dv">31</span>, <span class="dv">7</span>,  <span class="dv">15</span>]</span>
+<span id="cb2-5"><a href="#cb2-5"></a>w <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">35</span>, <span class="dv">10</span>, <span class="dv">33</span>]</span>
+<span id="cb2-6"><a href="#cb2-6"></a>Q, I <span class="op">=</span> <span class="dv">47</span>, <span class="bu">range</span>(<span class="bu">len</span>(w))</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># cria um modelo</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>m <span class="op">=</span> Model(<span class="st">&quot;knapsack&quot;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co"># adiciona variáveis &#39;x&#39; ao modelo &#39;m&#39;</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>x <span class="op">=</span> [m.add_var(var_type<span class="op">=</span>BINARY) <span class="cf">for</span> i <span class="kw">in</span> I]</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># especifica a função objetivo do modelo &#39;m&#39;</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>m.objective <span class="op">=</span> maximize(xsum(p[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> I))</span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># adiciona restrições ao modelo &#39;m&#39;</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>m <span class="op">+=</span> xsum(w[i] <span class="op">*</span> x[i] <span class="cf">for</span> i <span class="kw">in</span> I) <span class="op">&lt;=</span> Q</span></code></pre></div>
 </section>
 <section id="python-mip-exemplo-mochila-0-1-1" class="slide level2">
 <h2>Python-MIP exemplo Mochila 0-1</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># resolve o modelo &#39;m&#39;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>status <span class="op">=</span> m.optimize()</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Imprime a solução final obtida.</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  Note que variáveis da relaxação assumem valores</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  tipo &#39;float&#39;, então precisamos ter certa tolerância</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#  para inferir respectivos valores inteiros &#39;0&#39; e &#39;1&#39;</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>selected <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> I <span class="cf">if</span> x[i].x <span class="op">&gt;=</span> <span class="fl">0.99</span>]</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">&quot;selected items: </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(selected))</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># imprime a situação da otimização e valor objetivo</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="bu">print</span>(<span class="st">&quot;status =&quot;</span>, status, <span class="st">&quot; obj =&quot;</span>, m.objective_value)</span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co"># imprime o valor para cada variável na solução</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="cf">for</span> i <span class="kw">in</span> I:</span>
-<span id="cb2-15"><a href="#cb2-15"></a>    <span class="bu">print</span>(<span class="st">&quot;i=&quot;</span>, i, <span class="st">&quot;-&gt;&quot;</span>, x[i].x)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># resolve o modelo &#39;m&#39;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>status <span class="op">=</span> m.optimize()</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># Imprime a solução final obtida.</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#  Note que variáveis da relaxação assumem valores</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#  tipo &#39;float&#39;, então precisamos ter certa tolerância</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#  para inferir respectivos valores inteiros &#39;0&#39; e &#39;1&#39;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>selected <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> I <span class="cf">if</span> x[i].x <span class="op">&gt;=</span> <span class="fl">0.99</span>]</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="bu">print</span>(<span class="st">&quot;selected items: </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(selected))</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co"># imprime a situação da otimização e valor objetivo</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="bu">print</span>(<span class="st">&quot;status =&quot;</span>, status, <span class="st">&quot; obj =&quot;</span>, m.objective_value)</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># imprime o valor para cada variável na solução</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="cf">for</span> i <span class="kw">in</span> I:</span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="bu">print</span>(<span class="st">&quot;i=&quot;</span>, i, <span class="st">&quot;-&gt;&quot;</span>, x[i].x)</span></code></pre></div>
 </section>
 <section id="tarefa-python-mip-com-mochila" class="slide level2">
 <h2>Tarefa Python-MIP com Mochila</h2>

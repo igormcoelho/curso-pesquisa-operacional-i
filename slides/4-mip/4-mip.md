@@ -22,6 +22,7 @@ Esses slides foram possíveis devido a contribuições de diversas pessoas/mater
 - Livro Nelson Maculan e Marcia Fampa
 - Livro-texto do curso
 - [2] Tutorial ilectures (https://igormcoelho.github.io/ilectures-pandoc/)
+- Vitor Nazário Coelho e Haroldo Gambini pelas dicas no Python-MIP e Gurobi
 
 
 -----
@@ -86,11 +87,11 @@ $$
 
 ## Problemas Inteiros
 
-O Simplex serve para resolver problemas fracionários, porém não resolve problemas inteiros. 
+O Simplex serve para resolver problemas fracionários, porém não resolve problemas inteiros.
 
 Ressaltamos que o _Problema de Programação Inteira_ ou _Programação Inteira Mista_ (MIP) é NP-Difícil, então não é conhecido um algoritmo que resolva todo tipo de MIP em tempo polinomial.
 
-A abordagem padrão consiste em utilizar uma estratégia de enumeração, chamada Branch&Bound, que utiliza o Simplex para efetuar _podas inteligentes_ na árvore de ramificação. 
+A abordagem padrão consiste em utilizar uma estratégia de enumeração, chamada Branch&Bound, que utiliza o Simplex para efetuar _podas inteligentes_ na árvore de ramificação.
 
 
 ------
@@ -115,6 +116,42 @@ Para instalar o `python-mip` no python3: `pip install mip`.
 
 Documentação online: https://python-mip.readthedocs.io/en/latest/examples.html
 
+------
+
+## Python-MIP com Gurobi
+
+É recomendável a instalação do Gurobi, para acelerar o processo de busca.
+Veja o link (linux, windows e mac):
+
+- https://www.gurobi.com/documentation/quickstart.html
+- https://www.gurobi.com/downloads/gurobi-optimizer (é necessário registrar!)
+
+Para **Linux** com **Gurobi 9.0.2**: [(LINK para gurobi.com)](https://www.gurobi.com/documentation/9.0/quickstart_linux/software_installation_guid.html)
+
+- Baixe o arquivo `gurobi9.0.2_linux64.tar.gz`, e então:
+   * `tar xvfz gurobi9.0.2_linux64.tar.gz gurobi902/`
+   * `sudo mv gurobi902 /opt/` (instala na pasta `/opt`)
+- Adicione em `~/.bashrc` os seguintes ambientes:
+```
+export GUROBI_HOME=/opt/gurobi902/linux64
+export PATH=$GUROBI_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$GUROBI_HOME/lib:$LD_LIBRARY_PATH
+```
+
+------
+
+## Python-MIP com Gurobi (Licença)
+
+
+Pedindo licença acadêmica [(LINK para gurobi.com)](https://www.gurobi.com/documentation/9.0/quickstart_linux/retrieving_and_setting_up_.html#section:RetrieveLicense).
+
+Você obterá um código tipo `a13f503a-c5f6-11ea-b1bb-xxxxxxxxxxxx`, então basta executar:
+
+- `source ~/.bashrc` (carrega variáveis de ambiente)
+- `grbgetkey a13f503a-c5f6-11ea-b1bb-xxxxxxxxxxxx`
+- `gurobi.sh` (executa o gurobi)
+
+O `python-mip` automaticamente usará o Gurobi se ele estiver disponível no sistema.
 
 ------
 
