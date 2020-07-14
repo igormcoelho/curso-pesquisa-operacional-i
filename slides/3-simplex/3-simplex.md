@@ -184,6 +184,7 @@ max & x_1 & +2x_2 & +0x_3 & +0x_4 & +0x_5\\
     & x_1,& x_2,  & x_3,  & x_4,  & x_5   & \geq 0\\
 \end{matrix}
 $$
+
 $$
 \underbrace
 {
@@ -202,8 +203,7 @@ x_3\\
 x_4\\
 x_5\\
 \end{bmatrix}
-}_{x}
-=
+}_{x}=
 \underbrace
 {
 \begin{bmatrix}
