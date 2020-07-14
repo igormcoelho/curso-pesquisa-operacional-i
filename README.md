@@ -19,3 +19,11 @@ Tópicos:
       - [ex1_marcone.py](./slides/examples-mip/ex1_marcone.py)
 
 ...
+
+### Como esses slides foram feitos?
+
+Estes slides foram feitos em `markdown` e `pandoc` (super fácil!) de acordo com o tutorial [ilectures-pandoc](https://github.com/igormcoelho/ilectures-pandoc).
+
+Basicamente, é necessário instalar o pandoc e, opcionalmente, copiar alguns filtros úteis do tutorial (dois arquivos python). Então, é possível gerar, a partir do `markdown`, uma versão PDF LaTeX+Beamer, e outra web utilizando RevealJS. O tutorial explica tudo em detalhes.
+
+Uma demonstração foi colocada no site do ilectures: https://github.com/igormcoelho/ilectures-pandoc#demonstrations
