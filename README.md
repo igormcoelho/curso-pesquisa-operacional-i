@@ -1,6 +1,10 @@
 ## Pesquisa Operacional I
 
-Tópicos:
+Curso de **Pesquisa Operacional I** do [Prof. Igor Machado Coelho](https://igormcoelho.github.io), oferecido pelo [Instituto de Computação (IC) da Universidade Federal Fluminense (UFF)](https://www.ic.uff.br).
+
+**Última atualização:** Julho/2020 _(Período ACE 2020.1)_
+
+### Tópicos do Curso
 
 0. [Introdução ao curso](slides/0-intro-curso/0-intro-curso.md): [PDF](slides/0-intro-curso/0-intro-curso.pdf) [Online](https://igormcoelho.github.io/curso-pesquisa-operacional-i/slides/0-intro-curso/index.html)
 1. [Introdução a PO](slides/1-intro-po/1-intro-po.md): [PDF](slides/1-intro-curso/1-intro-po.pdf) [Online](https://igormcoelho.github.io/curso-pesquisa-operacional-i/slides/1-intro-po/index.html)
