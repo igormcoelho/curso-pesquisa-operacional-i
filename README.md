@@ -26,4 +26,5 @@ Estes slides foram feitos em `markdown` e `pandoc` (super fácil!) de acordo com
 
 Basicamente, é necessário instalar o pandoc e, opcionalmente, copiar alguns filtros úteis do tutorial (dois arquivos python). Então, é possível gerar, a partir do `markdown`, uma versão PDF LaTeX+Beamer, e outra web utilizando RevealJS. O tutorial explica tudo em detalhes.
 
-Uma demonstração foi colocada no site do ilectures: https://github.com/igormcoelho/ilectures-pandoc#demonstrations
+O mais legal é que a edição do slide tem uma visualização em tempo real, com plugins disponíveis para editores populares como Atom e VSCode.
+Uma demonstração foi colocada no site do ilectures: [https://github.com/igormcoelho/ilectures-pandoc#demonstrations](https://github.com/igormcoelho/ilectures-pandoc#demonstrations).
