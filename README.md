@@ -16,8 +16,7 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
    * Material complementar: [Slides Prof. Marcone (B&B)](./slides/thirdparty/Marcone-Branch-and-Bound.ppt)
 5. Fundamentos de Otimização
 6. Meta-heurísticas
-   * Artigo de Kenneth Sörensen (2013): _Metaheuristics -- the Metaphor Exposed_.
-   [DOI](https://doi.org/10.1111/itor.12001) - [PDF](https://www.researchgate.net/publication/237009138_Metaheuristics_--_the_metaphor_exposed)
+   * Artigo de Kenneth Sörensen (2013): [_Metaheuristics -- the Metaphor Exposed_](https://doi.org/10.1111/itor.12001) - [PDF](https://www.researchgate.net/publication/237009138_Metaheuristics_--_the_metaphor_exposed)
 
 - Extras:
    * Material complementar: [Apostila Prof. Marcone (Apost. Otim.)](./slides/thirdparty/Marcone-Apostila-Otimizacao.pdf)
