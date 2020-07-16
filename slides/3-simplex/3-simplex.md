@@ -137,11 +137,13 @@ Demais técnicas de conversão de variáveis/restrições:
 
 ## Tipos de PPL
 
-Listamos três tipos fundamentais de PPL:
+Listamos três tipos fundamentais de PPL[^7]:
 
 - padrão (_standard_): $Ax=b$ e $x\geq 0$
 - canônico (_canonical_): $Ax \geq b$ e $x\geq 0$
 - geral (_general_): $a_i x=b_i$ ($\forall\;i \in M$), $a_i x \geq b_i$ ($\forall\;i \in \bar{M}$), $x_j \geq 0$ ($\forall\;j \in N$), $x_{j} \gtrless 0$ ($\forall\;j \in \bar{N}$)
+
+[^7]: Christos Papadimitriou & Kenneth Steiglitz. _Combinatorial Optimization_, 1982 (1998).
 
 --------
 
