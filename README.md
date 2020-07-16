@@ -17,7 +17,7 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
 5. Fundamentos de Otimização
 6. Meta-heurísticas
    * Artigo de Kenneth Sörensen (2013): [_Metaheuristics -- the Metaphor Exposed_](https://doi.org/10.1111/itor.12001) - [PDF](https://www.researchgate.net/publication/237009138_Metaheuristics_--_the_metaphor_exposed)
-   * Artigo co-autorado com Gustavo Semaan et al (2020): _A Brief History of Heuristics, from Bounded Rationality to Intractability_, **IEEE Latin America Transactions**.
+   * Artigo co-autorado com Gustavo Semaan et al (2020): _A Brief History of Heuristics, from Bounded Rationality to Intractability_, **IEEE Latin America Transactions** (to appear).
 
 - Extras:
    * Material complementar: [Apostila Prof. Marcone (Apost. Otim.)](./slides/thirdparty/Marcone-Apostila-Otimizacao.pdf)
