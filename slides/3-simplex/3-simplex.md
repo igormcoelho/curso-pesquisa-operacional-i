@@ -127,13 +127,23 @@ Demais técnicas de conversão de variáveis/restrições:
 - Existem variáveis não positivas (seja $x_k \leq 0$):
    * **Solução:** Substituir por variável $x_k' \geq 0$ tal que $x_k' = -x_k$
 
-- Existem variáveis livres (seja $x_k \in \mathbb{R}$):
+- Existem variáveis livres $x_k \gtrless 0$ (seja $x_k \in \mathbb{R}$):
    * **Solução:** substituir $x_k$ por $x_k' - x_k''$, tal que $x_k' \geq 0$ e $x_k'' \geq 0$
 
 - Um problema de minimização pode ser convertido em maximização (vice-versa):
    $$ maximizar \; f(x) = - minimizar \; \{ - f(x) \} $$
 
 -------
+
+## Tipos de PPL
+
+Listamos três tipos fundamentais de PPL:
+
+- padrão (_standard_): $Ax=b$ e $x\geq 0$
+- canônico (_canonical_): $Ax \geq b$ e $x\geq 0$
+- geral (_general_): $a_i x=b_i$ ($\forall\;i \in M$), $a_i x \geq b_i$ ($\forall\;i \in \bar{M}$), $x_j \geq 0$ ($\forall\;j \in N$), $x_{j} \gtrless 0$ ($\forall\;j \in \bar{N}$)
+
+--------
 
 ## Problema de Programação Linear Padrão
 
