@@ -2,6 +2,11 @@
 
 _Curso de **Pesquisa Operacional I** do [Prof. Igor Machado Coelho](https://igormcoelho.github.io), oferecido pelo [Instituto de Computação (IC) da Universidade Federal Fluminense (UFF)](http://www.ic.uff.br)._
 
+
+**hospedagem**: [github.com/igormcoelho/curso-pesquisa-operacional-i](https://github.com/igormcoelho/curso-pesquisa-operacional-i)
+![Estrelas](https://img.shields.io/github/stars/igormcoelho/curso-pesquisa-operacional-i)
+![Licença](https://img.shields.io/github/license/igormcoelho/curso-pesquisa-operacional-i)
+
 _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
 
 ### Tópicos do Curso
@@ -42,3 +47,22 @@ Basicamente, é necessário instalar o pandoc e, opcionalmente, copiar alguns fi
 
 O mais legal é que a edição do slide tem uma visualização em tempo real, com plugins disponíveis para editores populares como Atom e VSCode.
 Uma demonstração foi colocada no site do ilectures: [https://github.com/igormcoelho/ilectures-pandoc#demonstrations](https://github.com/igormcoelho/ilectures-pandoc#demonstrations).
+
+
+### Licença CC-BY 4.0
+
+Você pode: (Share) copiar e redistribuir esse material em qualquer formato; (Adapt) adaptar esse material, mesmo que para uso comercial.
+
+Você deve: (Attribution) dar crédito apropriado, bem como um link para o original e a indicação das mudanças que você fez.
+
+Veja licença original [CreativeCommons CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+``` 
+curso-pesquisa-operacional-i (c) by Igor M. Coelho
+
+curso-pesquisa-operacional-i is licensed under a
+Creative Commons Attribution 4.0 International License.
+
+You should have received a copy of the license along with this
+work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
+```
