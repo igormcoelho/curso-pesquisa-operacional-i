@@ -166,7 +166,7 @@ $$(PPL):\; maximizar \; z = cx$$
 $$Ax = b$$
 $$x \geq 0$$
 
-onde $c=(c_1\;c_2\;...\;c_\mathcal{N})$, $x^T = (x_1\;x_2\;...\;x_\mathcal{N})$, $b^T = (b_1\;b_2\;...\;b_m)$, $A=(a_1\;a_2\;...\;a_n)$ e $a_j^T = (a_{1j} \; a_{2j} \; ... a_{mj})$, isto é, $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m\times n}$ e $a_j \in \mathbb{R}^m$.
+onde $c=(c_1\;c_2\;...\;c_\mathcal{N})$, $x^{\intercal} = (x_1\;x_2\;...\;x_\mathcal{N})$, $b^{\intercal} = (b_1\;b_2\;...\;b_m)$, $A=(a_1\;a_2\;...\;a_n)$ e $a_j^{\intercal} = (a_{1j} \; a_{2j} \; ... a_{mj})$, isto é, $c^{\intercal} \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m\times n}$ e $a_j \in \mathbb{R}^m$.
 
 
 
@@ -237,7 +237,7 @@ A matriz $A_{m \times n}$ pode ser particionada da seguinte maneira (supondo $po
 $$A = ( B \; N )$$
 
 onde $B_{m \times m}$, chamada de matriz básica, é inversível; e $N_{m \times (n-m)}$ é chamada de não-básica.
-Analogamente, particionamos $x$ e $c$, tal que: $x^T = (x_\mathcal{B}^T \; x_\mathcal{N}^T)$, $c = (c_\mathcal{B} \; c_\mathcal{N})$. Vetores $x_\mathcal{B}$ e $c_\mathcal{B}$ possuem $m$ componentes associadas à matriz $B$. Reescrevemos o PPL:
+Analogamente, particionamos $x$ e $c$, tal que: $x^{\intercal} = (x_\mathcal{B}^{\intercal} \; x_\mathcal{N}^{\intercal})$, $c = (c_\mathcal{B} \; c_\mathcal{N})$. Vetores $x_\mathcal{B}$ e $c_\mathcal{B}$ possuem $m$ componentes associadas à matriz $B$. Reescrevemos o PPL:
 
 $$(PPL): \; maximizar \; z = c_\mathcal{B} x_\mathcal{B} + c_\mathcal{N} x_\mathcal{N}$$
 $$Bx_\mathcal{B} + Nx_\mathcal{N}$$
@@ -255,7 +255,7 @@ Faremos $x_\mathcal{N}=0$ e $\bar{x}_\mathcal{B} = B^{-1}b$.
 
 
 Definição 2.2 (Maculan&Fampa)
-: $\bar{x}$ é uma **solução básica**, se $\bar{x}^T = (\bar{x}_\mathcal{B}^T \; 0)$.
+: $\bar{x}$ é uma **solução básica**, se $\bar{x}^{\intercal} = (\bar{x}_\mathcal{B}^{\intercal} \; 0)$.
 
 Quando $\bar{x}_\mathcal{B} \geq 0$, será uma **solução básica viável**.
 
@@ -276,7 +276,7 @@ $$x_\mathcal{B} \geq 0, x_\mathcal{N} \geq 0$$
 
 De acordo com Maculan&Fampa, definiremos:
 
-- $\lambda = c_\mathcal{B}B^{-1}$, $\lambda^T \in \mathbb{R}^m$
+- $\lambda = c_\mathcal{B}B^{-1}$, $\lambda^{\intercal} \in \mathbb{R}^m$
 - $\bar{x}_\mathcal{B} = B^{-1}b$, $\bar{x}_\mathcal{B} \in \mathbb{R}^m$
 - $z_j = \lambda a_j$, $(j \in I_\mathcal{B} \cup I_\mathcal{N})$, $z_j \in \mathbb{R}$
 - $y_j = B^{-1} a_j$,  $(j \in I_\mathcal{B} \cup I_\mathcal{N})$,  $y_j \in \mathbb{R}^m$
@@ -325,9 +325,9 @@ $$
 $$
 2. Passo 2: cálculo dos custos relativos
    1. Vetor multiplicador simplex
-      - $\lambda^T = c_\mathcal{B}^TB^{-1}$
+      - $\lambda^{\intercal} = c_\mathcal{B}^{\intercal}B^{-1}$
    1. Custos relativos
-      - $\hat{c}_{N(j)}=c_{N(j)} - \lambda^T a_{N(j)}, \; j=1,2,...,n-m$
+      - $\hat{c}_{N(j)}=c_{N(j)} - \lambda^{\intercal} a_{N(j)}, \; j=1,2,...,n-m$
    1. Determinação de variável a entrar na base
       - $\hat{c}_{N(k)} = min\{\hat{c}_{N(j)}, j=1,...,n-m\}$ (a variável $x_{N(k)}$ entra na base)
 3. Passo 3: teste de otimalidade (minimização)
@@ -427,7 +427,7 @@ x = np.linalg.inv(Base).dot(b)
 
 ## Exemplo com Python (primeira iteração - passo 2)
 
-Passo 2 - Calcule custos relativos (para $N_0$ e $N_1$): $c_\mathcal{B}=(c_{\mathcal{B}(0)}, c_{\mathcal{B}(1)}, c_{\mathcal{B}(2)})$, $B^T\lambda=c_\mathcal{B}$, onde $\lambda^T=(0,0,0)$.
+Passo 2 - Calcule custos relativos (para $N_0$ e $N_1$): $c_\mathcal{B}=(c_{\mathcal{B}(0)}, c_{\mathcal{B}(1)}, c_{\mathcal{B}(2)})$, $B^{\intercal}\lambda=c_\mathcal{B}$, onde $\lambda^{\intercal}=(0,0,0)$.
 
 ```python
 cB = [ c[IB[0]], c[IB[1]], c[IB[2]] ] 
@@ -441,7 +441,7 @@ u = np.linalg.inv(np.transpose(Base)).dot(cB)
 
 ::::: {.column width=50%}
 
-- $\hat{c}_0 = c_0 - \lambda^T a_0 = -1$ 
+- $\hat{c}_0 = c_0 - \lambda^{\intercal} a_0 = -1$ 
 
 ```python
 a0 = A[:,0]
@@ -454,7 +454,7 @@ cr0 = c[0] - u.dot(a0)
 
 ::::: {.column width=50%}
 
-- $\hat{c}_1 = c_1 - \lambda^T a_1 = -2$ 
+- $\hat{c}_1 = c_1 - \lambda^{\intercal} a_1 = -2$ 
 
 ```python
 a1 = A[:,1]
@@ -473,7 +473,7 @@ cr1 = c[1] - u.dot(a1)
 
 ## Exemplo com Python (primeira iteração - passos 3-6)
 
-Passo 3 dispensado ($\hat{c}_1 = -2 < 0$), solução não é ótima! Vamos ao passo 4 para cálculo da direção simplex: resolva $By=a_1$ e obtenha $y^T=(1\;-1\;\;1)$.
+Passo 3 dispensado ($\hat{c}_1 = -2 < 0$), solução não é ótima! Vamos ao passo 4 para cálculo da direção simplex: resolva $By=a_1$ e obtenha $y^{\intercal}=(1\;-1\;\;1)$.
 
 ```python
 y = np.linalg.inv(Base).dot(a1)
@@ -541,7 +541,7 @@ Avance ao passo 2 e descubra que solução é ótima!
 
 ## Exemplo com Python (solução ótima)
 
-Obtenha valor $f(x)=-11$ na solução ótima $\hat{x}^T=(1,5,0,8,0)$:
+Obtenha valor $f(x)=-11$ na solução ótima $\hat{x}^{\intercal}=(1,5,0,8,0)$:
 
 ```python
 IB=[0,3,1]  # variaveis na base
