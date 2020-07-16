@@ -3,9 +3,11 @@
 _Curso de **Pesquisa Operacional I** do [Prof. Igor Machado Coelho](https://igormcoelho.github.io), oferecido pelo [Instituto de Computação (IC) da Universidade Federal Fluminense (UFF)](http://www.ic.uff.br)._
 
 
-**hospedagem**: [github.com/igormcoelho/curso-pesquisa-operacional-i](https://github.com/igormcoelho/curso-pesquisa-operacional-i)
+**código-fonte:** [github.com/igormcoelho/curso-pesquisa-operacional-i](https://github.com/igormcoelho/curso-pesquisa-operacional-i)
 ![Estrelas](https://img.shields.io/github/stars/igormcoelho/curso-pesquisa-operacional-i)
 ![Licença](https://img.shields.io/github/license/igormcoelho/curso-pesquisa-operacional-i)
+
+**versão online:** [igormcoelho.github.io/curso-pesquisa-operacional-i/](https://igormcoelho.github.io/curso-pesquisa-operacional-i/)
 
 _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
 
@@ -57,7 +59,7 @@ Você deve: (Attribution) dar crédito apropriado, bem como um link para o origi
 
 Veja licença original [CreativeCommons CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-``` 
+```
 curso-pesquisa-operacional-i (c) by Igor M. Coelho
 
 curso-pesquisa-operacional-i is licensed under a
