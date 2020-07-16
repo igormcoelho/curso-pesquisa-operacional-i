@@ -163,15 +163,15 @@ tendo assim, $n$ variáveis e $m$ restrições.
 
 De forma equivalente, podemos representar o PPL na forma vetorial:
 $$(PPL):\; maximizar \; z = cx$$
-$$\mathcal{A}x = b$$
+$$Ax = b$$
 $$x \geq 0$$
 
-onde $c=(c_1\;c_2\;...\;c_n)$, $x^T = (x_1\;x_2\;...\;x_n)$, $b^T = (b_1\;b_2\;...\;b_m)$, $\mathcal{A}=(a_1\;a_2\;...\;a_n)$ e $a_j^T = (a_{1j} \; a_{2j} \; ... a_{mj})$, isto é, $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $\mathcal{A} \in \mathbb{R}^{m\times n}$ e $a_j \in \mathbb{R}^m$.
+onde $c=(c_1\;c_2\;...\;c_\mathcal{N})$, $x^T = (x_1\;x_2\;...\;x_\mathcal{N})$, $b^T = (b_1\;b_2\;...\;b_m)$, $A=(a_1\;a_2\;...\;a_n)$ e $a_j^T = (a_{1j} \; a_{2j} \; ... a_{mj})$, isto é, $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m\times n}$ e $a_j \in \mathbb{R}^m$.
 
 
 
 Definição 2.1 (Maculan&Fampa)
-: Seja $X=\{x \in \mathbb{R}^n|\mathcal{A}x=b, x\geq 0 \}$ a **região viável** do PPL, e $x \in X$ uma **solução viável** do PPL. Se $x^* \in X$ tal que $cx^* \geq cx, \forall x\in X$, $x^*$ é uma **solução ótima**.
+: Seja $X=\{x \in \mathbb{R}^n|Ax=b, x\geq 0 \}$ a **região viável** do PPL, e $x \in X$ uma **solução viável** do PPL. Se $x^* \in X$ tal que $cx^* \geq cx, \forall x\in X$, $x^*$ é uma **solução ótima**.
 
 -------
 
@@ -205,7 +205,7 @@ $$
 0 & 1 & 0 & 1 & 0\\
 1 & 1 & 0 & 0 & 1\\
 \end{bmatrix}
-}_{\mathcal{A}}
+}_{A}
 \underbrace
 {
 \begin{bmatrix}
@@ -232,44 +232,43 @@ $$
 
 ## Matriz básica e não-básica
 
-A matriz $\mathcal{A}_{m \times n}$ pode ser particionada da seguinte maneira (supondo $posto(\mathcal{A})=m$, com $m$ colunas independentes):
+A matriz $A_{m \times n}$ pode ser particionada da seguinte maneira (supondo $posto(A)=m$, com $m$ colunas independentes):
 
-$$\mathcal{A} = ( \mathcal{B} \; \mathcal{N} )$$
+$$A = ( B \; N )$$
 
-onde $\mathcal{B}_{m \times m}$, chamada de matriz básica, é inversível; e $\mathcal{N}_{m \times (n-m)}$ é chamada de não-básica.
-Analogamente, particionamos $x$ e $c$, tal que: $x^T = (x_B^T \; x_N^T)$, $c = (c_B \; c_N)$. Vetores $x_B$ e $c_B$ possuem $m$ componentes associadas à matriz $\mathcal{B}$.
-Reescrevemos o PPL:
+onde $B_{m \times m}$, chamada de matriz básica, é inversível; e $N_{m \times (n-m)}$ é chamada de não-básica.
+Analogamente, particionamos $x$ e $c$, tal que: $x^T = (x_\mathcal{B}^T \; x_\mathcal{N}^T)$, $c = (c_\mathcal{B} \; c_\mathcal{N})$. Vetores $x_\mathcal{B}$ e $c_\mathcal{B}$ possuem $m$ componentes associadas à matriz $B$. Reescrevemos o PPL:
 
-$$(PPL): \; maximizar \; z = c_B x_B + c_N x_N$$
-$$\mathcal{B}x_B + \mathcal{N}x_N$$
-$$x_B\geq 0, x_N \geq 0$$
+$$(PPL): \; maximizar \; z = c_\mathcal{B} x_\mathcal{B} + c_\mathcal{N} x_\mathcal{N}$$
+$$Bx_\mathcal{B} + Nx_\mathcal{N}$$
+$$x_\mathcal{B}\geq 0, x_\mathcal{N} \geq 0$$
 
 -------
 
 ## Solução básica e não-básica
 
-Explicitamos $x_B$ em função de $x_N$ (Eq. 2.10 em Maculan&Fampa):
+Explicitamos $x_\mathcal{B}$ em função de $x_\mathcal{N}$ (Eq. 2.10 em Maculan&Fampa):
 
-$$x_B = \mathcal{B}^{-1}b - \mathcal{B}^{-1}\mathcal{N}x_N$$
+$$x_\mathcal{B} = B^{-1}b - B^{-1}Nx_\mathcal{N}$$
 
-Faremos $x_N=0$ e $\bar{x}_B = \mathcal{B}^{-1}b$.
+Faremos $x_\mathcal{N}=0$ e $\bar{x}_\mathcal{B} = B^{-1}b$.
 
 
 Definição 2.2 (Maculan&Fampa)
-: $\bar{x}$ é uma **solução básica**, se $\bar{x}^T = (\bar{x}_B^T \; 0)$.
+: $\bar{x}$ é uma **solução básica**, se $\bar{x}^T = (\bar{x}_\mathcal{B}^T \; 0)$.
 
-Quando $\bar{x}_B \geq 0$, será uma **solução básica viável**.
+Quando $\bar{x}_\mathcal{B} \geq 0$, será uma **solução básica viável**.
 
-Sejam $I_B$ o conjunto dos índices das colunas de $\mathcal{A}$ pertencendo à matriz $\mathcal{B}$, e $I_N$ os demais índices de $\mathcal{A}$, tal que: $I_B \cap I_N = \varnothing$ e $I_B \cup I_N = \{ 1,2, ..., n\}$.
+Sejam $I_\mathcal{B}$ o conjunto dos índices das colunas de $A$ pertencendo à matriz $B$, e $I_\mathcal{N}$ os demais índices de $A$, tal que: $I_\mathcal{B} \cap I_\mathcal{N} = \varnothing$ e $I_\mathcal{B} \cup I_\mathcal{N} = \{ 1,2, ..., n\}$.
 
 ------
 
 ## PPL com matriz básica
 
-$$(PPL): \; maximizar \; z = c_B\mathcal{B}^{-1}b - (c_B\mathcal{B}^{-1}\mathcal{N} - c_N)x_N$$
+$$(PPL): \; maximizar \; z = c_\mathcal{B}B^{-1}b - (c_\mathcal{B}B^{-1}N - c_\mathcal{N})x_\mathcal{N}$$
 Sujeito a:
-$$x_B=\mathcal{B}^{-1}b - \mathcal{B}^{-1}\mathcal{N}x_N$$
-$$x_B \geq 0, x_N \geq 0$$
+$$x_\mathcal{B}=B^{-1}b - B^{-1}Nx_\mathcal{N}$$
+$$x_\mathcal{B} \geq 0, x_\mathcal{N} \geq 0$$
 
 --------
 
@@ -277,25 +276,25 @@ $$x_B \geq 0, x_N \geq 0$$
 
 De acordo com Maculan&Fampa, definiremos:
 
-- $\lambda = c_B\mathcal{B}^{-1}$, $\lambda^T \in \mathbb{R}^m$
-- $\bar{x}_B = \mathcal{B}^{-1}b$, $\bar{x}_B \in \mathbb{R}^m$
-- $z_j = \lambda a_j$, $(j \in I_B \cup I_N)$, $z_j \in \mathbb{R}$
-- $y_j = \mathcal{B}^{-1} a_j$,  $(j \in I_B \cup I_N)$,  $y_j \in \mathbb{R}^m$
-- $\bar{z} = c_B\mathcal{B}^{-1}b = \lambda b = c_B\bar{x}_B$.
+- $\lambda = c_\mathcal{B}B^{-1}$, $\lambda^T \in \mathbb{R}^m$
+- $\bar{x}_\mathcal{B} = B^{-1}b$, $\bar{x}_\mathcal{B} \in \mathbb{R}^m$
+- $z_j = \lambda a_j$, $(j \in I_\mathcal{B} \cup I_\mathcal{N})$, $z_j \in \mathbb{R}$
+- $y_j = B^{-1} a_j$,  $(j \in I_\mathcal{B} \cup I_\mathcal{N})$,  $y_j \in \mathbb{R}^m$
+- $\bar{z} = c_\mathcal{B}B^{-1}b = \lambda b = c_\mathcal{B}\bar{x}_\mathcal{B}$.
 
 Então teremos um novo PPL aprimorado:
 
-$$(PPL): \; maximizar \; z = \bar{z} - \sum_{j \in I_N}(z_j - c_j)x_j$$
+$$(PPL): \; maximizar \; z = \bar{z} - \sum_{j \in I_\mathcal{N}}(z_j - c_j)x_j$$
 sujeito a:
-$$ x_B=\bar{x}_B - \sum_{j \in I_N} y_j x_j$$
-$$x_B \geq 0, x_j \geq 0, j \in I_N$$
+$$ x_\mathcal{B}=\bar{x}_\mathcal{B} - \sum_{j \in I_\mathcal{N}} y_j x_j$$
+$$x_\mathcal{B} \geq 0, x_j \geq 0, j \in I_\mathcal{N}$$
 
 ------
 
 ## Otimalidade no PPL
 
 Proposição 2.1 (de Maculan&Fampa)
-: Se $\bar{x}_B \geq 0$ e $z_j - c_j \geq 0$, $\forall j \in I_N$, então o vetor $x^* \in \mathbb{R}^n$, onde $x^*_{B(i)} = \bar{x}_{B(i)}$, $i=1,2,...,m$ e $x^*_j=0$, $j \in I_N$, será uma solução ótima do (PPL).
+: Se $\bar{x}_\mathcal{B} \geq 0$ e $z_j - c_j \geq 0$, $\forall j \in I_\mathcal{N}$, então o vetor $x^* \in \mathbb{R}^n$, onde $x^*_{\mathcal{B}(i)} = \bar{x}_{\mathcal{B}(i)}$, $i=1,2,...,m$ e $x^*_j=0$, $j \in I_\mathcal{N}$, será uma solução ótima do `(PPL)`.
 
 Focaremos agora na versão do Simplex por tabelas, após apresentar um pseudo-código do algoritmo (com base no livro-texto de Arenales).
 
@@ -305,12 +304,12 @@ Focaremos agora na versão do Simplex por tabelas, após apresentar um pseudo-c�
 
 ## Simplex para problemas de $\leq$
 
-O Simplex consiste de duas fases, onde a primeira consiste em encontrar uma base $\mathcal{B}$.
+O Simplex consiste de duas fases, onde a primeira consiste em encontrar uma base $B$.
 
 Para problemas com restrições $\leq$, as variáveis de folga introduzidas no modelo irão naturalmente formar uma matriz identidade $\mathcal{I}_m$.
 
 Assim, escolheremos essas variáveis de folga como _variáveis básicas_, atribuindo valor zero a todas as demais _variáveis não-básicas_ (originais do modelo).
-Teremos assim uma base inversível $\mathcal{B} = \mathcal{I}_m$.
+Teremos assim uma base inversível $B = \mathcal{I}_m$.
 Neste caso, a primeira fase do Simplex já é naturalmente efetuada.
 
 ------
@@ -320,13 +319,13 @@ Neste caso, a primeira fase do Simplex já é naturalmente efetuada.
 1. Passo 1: cálculo da solução básica
 $$
 \begin{cases}
-\bar{x}_B = \mathcal{B}^{-1}b\\
+\bar{x}_\mathcal{B} = B^{-1}b\\
 \bar{x}_N = 0
 \end{cases}
 $$
 2. Passo 2: cálculo dos custos relativos
    1. Vetor multiplicador simplex
-      - $\lambda^T = c_B^T\mathcal{B}^{-1}$
+      - $\lambda^T = c_\mathcal{B}^TB^{-1}$
    1. Custos relativos
       - $\hat{c}_{N(j)}=c_{N(j)} - \lambda^T a_{N(j)}, \; j=1,2,...,n-m$
    1. Determinação de variável a entrar na base
@@ -339,14 +338,14 @@ $$
 ## Pseudo-código do Simplex (Fase II) livro-texto
 
 4. Passo 4: Cálculo da direção Simplex
-   - $y = \mathcal{B}^{-1} a_{N(k)}$
+   - $y = B^{-1} a_{\mathcal{N}(k)}$
 5. Passo 5: Determinação do passo e variável a sair da base
    - Se $y \leq 0$, então: _pare_ (não existe solução ótima finita: $f(x) \rightarrow -\infty$)
    - Caso contrário, determine a variável a sair da base pela razão mínima:
-   $$\hat{\varepsilon}=\frac{\hat{x}_{B(\ell)}}{y_\ell} = min\left\{ \frac{\hat{x}_{B(i)}}{y_i}: y_i > 0, i = 1, ..., m \right\}$$ (variável $x_{B(\ell)}$ sai da base)
+   $$\hat{\varepsilon}=\frac{\hat{x}_{\mathcal{B}(\ell)}}{y_\ell} = min\left\{ \frac{\hat{x}_{\mathcal{B}(i)}}{y_i}: y_i > 0, i = 1, ..., m \right\}$$ (variável $x_{\mathcal{B}(\ell)}$ sai da base)
 6. Passo 6: atualização
-   - matriz básica: $\mathcal{B}=(a_{B(1)}\;...\;a_{B(\ell-1)}\;a_{N(k)}\;a_{B(\ell+1)}\;...\;a_{B(m)})$
-   - não-básica: $\mathcal{N}=(a_{N(1)}\;...\;a_{N(k-1)}\;a_{B(\ell)}\;a_{N(k+1)}\;...\;a_{N(n-m)})$
+   - matriz básica: $\mathcal{B}=(a_{\mathcal{B}(1)}\;...\;a_{\mathcal{B}(\ell-1)}\;a_{\mathcal{N}(k)}\;a_{\mathcal{B}(\ell+1)}\;...\;a_{\mathcal{B}(m)})$
+   - não-básica: $\mathcal{N}=(a_{\mathcal{N}(1)}\;...\;a_{\mathcal{N}(k-1)}\;a_{\mathcal{B}(\ell)}\;a_{\mathcal{N}(k+1)}\;...\;a_{\mathcal{N}(n-m)})$
    - incrementa iteração e volte ao Passo 1
 
 
@@ -368,19 +367,19 @@ minimizar \; f(x_0,x_1) = & -x_0 & -2x_1\\
 \end{matrix}
 $$
 
-**Solução Básica Ótima:** $x_B=(x_0, x_3, x_1)$, tal que $f(x_B) = -11$
+**Solução Básica Ótima:** $x_\mathcal{B}=(x_0, x_3, x_1)$, tal que $f(x_\mathcal{B}) = -11$
 
 ------
 
 ## Exemplo com Python (dados do problema)
 
-Primeiramente, adicionamos restrições de folga $\leq$ (novas variáveis $x_2$, $x_3$ e $x_4$), e obtemos uma matriz identidade $\mathcal{I}_3$ como base $\mathcal{B}$ para o passo 1 do Simplex: $B=(2,3,4)$.
+Primeiramente, adicionamos restrições de folga $\leq$ (novas variáveis $x_2$, $x_3$ e $x_4$), e obtemos uma matriz identidade $\mathcal{I}_3$ como base $B$ para o passo 1 do Simplex: $\mathcal{B}=(2,3,4)$.
 
 Dados do problema:
 
 |      | $x_0$  | $x_1$  | $x_2$  | $x_3$  | $x_4$  | $b$   |
 | :--  | :-- | :-- | :-- | :-- | :-- | :-- |
-| $\mathcal{A}$    | 1   | 1   | 1   |  0  | 0   |  6  |
+| $A$    | 1   | 1   | 1   |  0  | 0   |  6  |
 | ^    | 1   | -1  | 0   |  1  | 0   |  4  |
 | ^    | -1  | 1   | 0   |  0  | 1   |  4  |
 | $c$    | -1  | -2  | 0   |  0  | 0   | Min $f$  |
@@ -411,8 +410,8 @@ Base=np.transpose(np.asarray([A[:,IB[0]], A[:,IB[1]],
 
 ## Exemplo com Python (primeira iteração - passo 1)
 
-Passo 1 - Cálculo da solução básica (resolva $\mathcal{B}\cdot x_B = b$) e obtenha:
- $$\hat{x}_B=
+Passo 1 - Cálculo da solução básica (resolva $B\cdot x_\mathcal{B} = b$) e obtenha:
+ $$\hat{x}_\mathcal{B}=
  \begin{pmatrix}
  6\\4\\4\\
  \end{pmatrix}
@@ -428,7 +427,7 @@ x = np.linalg.inv(Base).dot(b)
 
 ## Exemplo com Python (primeira iteração - passo 2)
 
-Passo 2 - Calcule custos relativos (para $N_0$ e $N_1$): $c_B=(c_{B(0)}, c_{B(1)}, c_{B(2)})$, $\mathcal{B}^T\lambda=c_B$, onde $\lambda^T=(0,0,0)$.
+Passo 2 - Calcule custos relativos (para $N_0$ e $N_1$): $c_\mathcal{B}=(c_{\mathcal{B}(0)}, c_{\mathcal{B}(1)}, c_{\mathcal{B}(2)})$, $B^T\lambda=c_\mathcal{B}$, onde $\lambda^T=(0,0,0)$.
 
 ```python
 cB = [ c[IB[0]], c[IB[1]], c[IB[2]] ] 
@@ -474,7 +473,7 @@ cr1 = c[1] - u.dot(a1)
 
 ## Exemplo com Python (primeira iteração - passos 3-6)
 
-Passo 3 dispensado ($\hat{c}_1 = -2 < 0$), solução não é ótima! Vamos ao passo 4 para cálculo da direção simplex: resolva $\mathcal{B}y=a_1$ e obtenha $y^T=(1\;-1\;\;1)$.
+Passo 3 dispensado ($\hat{c}_1 = -2 < 0$), solução não é ótima! Vamos ao passo 4 para cálculo da direção simplex: resolva $By=a_1$ e obtenha $y^T=(1\;-1\;\;1)$.
 
 ```python
 y = np.linalg.inv(Base).dot(a1)
@@ -486,15 +485,15 @@ y = np.linalg.inv(Base).dot(a1)
 #array([ 6., -4.,  4.])
 ```
 
-Escolhemos $\hat{\varepsilon}=\frac{\hat{x}_{B(2)}}{y_2}=4$, então $x_{B(2)}=x_4$ sai da base: $B=(2,3,1)$, $N=(0,4)$, $f(x) = f(\hat{x}) + \hat{c}_{N(k)}\hat{\varepsilon} = 0 -2\times 4 = -8$.
+Escolhemos $\hat{\varepsilon}=\frac{\hat{x}_{\mathcal{B}(2)}}{y_2}=4$, então $x_{\mathcal{B}(2)}=x_4$ sai da base: $\mathcal{B}=(2,3,1)$, $\mathcal{N}=(0,4)$, $f(x) = f(\hat{x}) + \hat{c}_{\mathcal{N}(k)}\hat{\varepsilon} = 0 -2\times 4 = -8$.
 
 
 -----------
 
 ## Exemplo com Python (segunda iteração - passos 1-6)
 
-Passo 1 - Cálculo da solução básica (resolva $\mathcal{B}\cdot x_B = b$) e obtenha:
- $$\hat{x}_B=
+Passo 1 - Cálculo da solução básica (resolva $B\cdot x_\mathcal{B} = b$) e obtenha:
+ $$\hat{x}_\mathcal{B}=
  \begin{pmatrix}
  2\\8\\4\\
  \end{pmatrix}
@@ -511,14 +510,14 @@ x = np.linalg.inv(Base).dot(b)
 #array([2., 8., 4.])
 ```
 
-Avance nos passos 2-6 e obtenha: $B=(0,3,2)$, $N=(2,4)$.
+Avance nos passos 2-6 e obtenha: $\mathcal{B}=(0,3,2)$, $\mathcal{N}=(2,4)$.
 
 -----------
 
 ## Exemplo com Python (terceira iteração)
 
-Passo 1 - Cálculo da solução básica (resolva $\mathcal{B}\cdot x_B = b$) e obtenha:
- $$\hat{x}_B=
+Passo 1 - Cálculo da solução básica (resolva $B\cdot x_\mathcal{B} = b$) e obtenha:
+ $$\hat{x}_\mathcal{B}=
  \begin{pmatrix}
  1\\8\\5\\
  \end{pmatrix}
