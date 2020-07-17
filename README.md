@@ -31,9 +31,13 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
       - [ex1_marcone.py](./slides/examples-mip/ex1_marcone.py)
 
 - Algumas Personalidades da Área (em construção):
+    * [Brian Wilson Kernighan](https://en.wikipedia.org/wiki/Brian_Kernighan)
+      - [Kernighan-Lin algorithm for VLSI](https://en.wikipedia.org/wiki/Kernighan%E2%80%93Lin_algorithm)
     * [Christos Papadimitriou](https://engineering.columbia.edu/faculty/christos-papadimitriou)
     * George Dantzig
     * Nelson Maculan
+    * Shen Lin
+      - [Lin-Kernighan heuristic for TSP](https://en.wikipedia.org/wiki/Lin%E2%80%93Kernighan_heuristic)
     * ...
 
 ...
