@@ -41,7 +41,7 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
     * ...
 
 - Curiosidades:
-    * [Pedra, Papel e Tesoura em MIP](https://www.youtube.com/watch?v=I_vBhNf5x9Y) (contribuição Rodolfo Araujo)
+    * [Pedra, Papel e Tesoura em LP](https://www.youtube.com/watch?v=I_vBhNf5x9Y): contribuição [Rodolfo Araujo](https://github.com/rodoufu)
 
 ...
 
