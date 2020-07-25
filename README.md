@@ -40,6 +40,9 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
       - [Lin-Kernighan heuristic for TSP](https://en.wikipedia.org/wiki/Lin%E2%80%93Kernighan_heuristic)
     * ...
 
+- Curiosidades:
+    * [Pedra, Papel e Tesoura em MIP](https://www.youtube.com/watch?v=I_vBhNf5x9Y) (contribuição Rodolfo Araujo)
+
 ...
 
 ### Como esses slides foram feitos?
