@@ -55,6 +55,9 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
 - Curiosidades:
     * [Pedra, Papel e Tesoura em LP](https://www.youtube.com/watch?v=I_vBhNf5x9Y): contribuição [Rodolfo Araujo](https://github.com/rodoufu)
 
+- Livros interessantes:
+    * In Pursuit of the Traveling Salesman - William J. Cook
+
 ...
 
 ### Como esses slides foram feitos?
