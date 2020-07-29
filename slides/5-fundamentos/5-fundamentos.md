@@ -91,7 +91,7 @@ Aparentemente, o PCV Euclideano tende a ser "um pouco mais fácil", com maiores 
 
 Em geral, é considerado que a versão de decisão do PCV é NP-Completa (_"existe rota de tamanho $k$?"_). Porém, ainda não se sabe[^1] se o PCV Euclideano (decisão) pertence a NP!
 
-A razão é que comparar somas de raizes não é trivial... vide sequências abaixo somadas de 1.000.000 (e tirando raiz):
+A razão é que comparar somas de raizes não é trivial (_sum of square roots problem_)... vide sequências abaixo somadas de 1.000.000 (e tirando raiz):
 
 ```
 1 25 31 84 87  134 158 182 198
@@ -143,6 +143,8 @@ Vide livro de Hromkovic[^2].
 - Mochila pode ser resolvida por programação dinâmica em tempo pseudo-polinomial
 - Caixeiro Viajante pode ser aproximado com fator 1,5, porém existem limites de não-aproximabilidade acima de 1 (a não ser que P=NP).
 Ainda existe um grande intervalo a ser explorado...
+- Algoritmo de Programação Dinâmica Held-Karp nunca melhorado desde 1962 (tempo $O(n^2 2^n)$)
+- Heurística $Lin-Kernighan$ dominante para o PCV (vide trabalhos de $Helsgaun$)
 
 ------
 
