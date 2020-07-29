@@ -105,7 +105,7 @@ A razão é que comparar somas de raizes não é trivial... vide sequências aba
 
 Uma diferença é encontrada somente na 37ª casa decimal! (e não se conhece um algoritmo polinomial para isso)... Porém, basta arredondar para o inteiro mais próximo e o problema claramente pertence a NP.
 
-[^1]: _William J. Cook - In Pursuit of the Traveling Salesman_ Mathematics at the Limits of Computation -Princeton University Press (2011)_ 
+[^1]: _William J. Cook - In Pursuit of the Traveling Salesman_ Mathematics at the Limits of Computation -Princeton University Press (2011)_
 
 ------
 
@@ -135,6 +135,14 @@ Algumas subclasses de NPO podem ser formadas de acordo com a aproximabilidade:
 - NPO(V): Alguma aproximação com fração limitada a alguma função de $n$ (PCV e Max Clique).
 
 Vide livro de Hromkovic[^2].
+
+------
+
+## Limites Atuais
+
+- Mochila pode ser resolvida por programação dinâmica em tempo pseudo-polinomial
+- Caixeiro Viajante pode ser aproximado com fator 1,5, porém existem limites de não-aproximabilidade acima de 1 (a não ser que P=NP).
+Ainda existe um grande intervalo a ser explorado...
 
 ------
 
