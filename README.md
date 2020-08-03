@@ -33,7 +33,8 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
       - [PSO PPT](slides/thirdparty/marcone-meta/PSO.ppt)
       - [Simulated Annealing PPT](slides/thirdparty/marcone-meta/SA.PPT)
 
-
+- Avaliações:
+   * [Prova 1 - 2020.1 ACE](./slides/avaliacoes/ace-20201-prova.pdf)
 
 - Materiais Complementares do Curso:
    * Apostila Otimização Combinatória: [Apostila Prof. Marcone (Apost. Otim.)](./slides/thirdparty/Marcone-Apostila-Otimizacao.pdf)
