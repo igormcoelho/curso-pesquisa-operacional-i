@@ -148,6 +148,45 @@ Ainda existe um grande intervalo a ser explorado...
 
 ------
 
+## Exemplo Metah
+
+
+```{.latex .exec .hide hide=true void=true cmd='codes/run_latex.sh' args='figs/pseudo2.svg' output_label=''}
+\documentclass{standalone}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+%
+%\renewcommand{\thealgorithm}{}
+\renewcommand{\thealgocf}{}  % no number on algorithm2e
+%
+\begin{document}
+\pagestyle{empty}
+%
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetAlgoLined
+\KwResult{Write here the result}
+\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+\Input{Write here the input}
+\Output{Write here the output}
+\BlankLine
+\While{While condition}{
+    instructions\;
+    \eIf{condition}{
+        instructions1\;
+        instructions2\;
+    }{
+        instructions3\;
+    }
+}
+\caption{While loop with If/Else condition}
+\end{algorithm} 
+\end{document}
+```
+
+![Algoritmo de Teste](./figs/pseudo2.svg){width=100%}
+
+------
+
 ## Lista de Exercícios
 
 A lista de exercícios está disponibilizada no site.

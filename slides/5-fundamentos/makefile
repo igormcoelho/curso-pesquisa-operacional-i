@@ -1,7 +1,7 @@
-MDFILE=4-mip.md
+MDFILE=5-fundamentos.md
 OUTHTML=index.html
-OUTPDF=4-mip.pdf
-FILTERS= --filter ../../libs/pandoc-plot \
+OUTPDF=5-fundamentos.pdf
+FILTERS= --filter ../../libs/pandoc-plot --filter pandoc-source-exec \
             --filter ../../libs/comments-to.py #--filter pandoc-latex-color
 FILTERS_WEB= --filter pandoc-katex  
 
