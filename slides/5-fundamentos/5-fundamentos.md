@@ -2,7 +2,7 @@
 author: Igor M. Coelho
 title: Fundamentos de Otimização
 date: 29 de Julho de 2020
-transition: page
+transition: linear
 fontsize: 10
 header-includes:
 - <link rel="stylesheet" type="text/css" href="general.css">
@@ -153,7 +153,7 @@ Ainda existe um grande intervalo a ser explorado...
 
 ```{.latex .exec .hide hide=true void=true cmd='codes/run_latex.sh' args='figs/pseudo2.svg' output_label=''}
 \documentclass{standalone}
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[portuguese,ruled,vlined,linesnumbered]{algorithm2e}
 %
 %\renewcommand{\thealgorithm}{}
 \renewcommand{\thealgocf}{}  % no number on algorithm2e
@@ -164,14 +164,14 @@ Ainda existe um grande intervalo a ser explorado...
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \SetAlgoLined
-\KwResult{Write here the result}
+%\KwResult{Write here the result}
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
-\Input{Write here the input}
-\Output{Write here the output}
+\Entrada{Write here the input}
+\Saida{Write here the output}
 \BlankLine
-\While{While condition}{
+\Enqto{condição não satisfeita}{
     instructions\;
-    \eIf{condition}{
+    \eSe{condition}{
         instructions1\;
         instructions2\;
     }{
@@ -183,7 +183,7 @@ Ainda existe um grande intervalo a ser explorado...
 \end{document}
 ```
 
-![Algoritmo de Teste](./figs/pseudo2.svg){width=100%}
+![Algoritmo de Teste](./figs/pseudo2.svg){width=70%}
 
 ------
 
