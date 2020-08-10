@@ -42,6 +42,8 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
    * Examples-MIP:
       - [knapsack.py](./slides/examples-mip/knapsack.py)
       - [ex1_marcone.py](./slides/examples-mip/ex1_marcone.py)
+   * Exemplo Simulated Annealing para Mochila (com OptFrame FCore):
+      - [FCore-KP-SA.zip](./exemplo-optframe/FCore-KP-SA.zip)
 
 - Algumas Personalidades da Área (em construção):
     * [Brian Wilson Kernighan](https://en.wikipedia.org/wiki/Brian_Kernighan)
