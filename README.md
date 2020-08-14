@@ -35,6 +35,10 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
 
 - Avaliações:
    * [Prova 1 - 2020.1 ACE](./slides/avaliacoes/ace-20201-prova.pdf)
+      - [Solução Questão 1](./slides/avaliacoes/1-ex_prova_tv.py)
+      - [Solução Questão 2](./slides/avaliacoes/2-ex_prova_cam.py)
+      - [Solução Questão 3](./slides/avaliacoes/3-ex_tableau.md)
+      - Solução Questão 4
 
 - Materiais Complementares do Curso:
    * Apostila Otimização Combinatória: [Apostila Prof. Marcone (Apost. Otim.)](./slides/thirdparty/Marcone-Apostila-Otimizacao.pdf)

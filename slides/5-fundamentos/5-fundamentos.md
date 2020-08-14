@@ -148,10 +148,10 @@ Ainda existe um grande intervalo a ser explorado...
 
 ------
 
-## Exemplo Metah
+## Exemplo Algo
 
 
-```{.latex .exec .hide hide=true void=true cmd='codes/run_latex.sh' args='figs/pseudo2.svg' output_label=''}
+```{.latex .exec .hide cmd='codes/run_latex.sh' args='figs/pseudo2.svg' output_label=''}
 \documentclass{standalone}
 \usepackage[portuguese,ruled,vlined,linesnumbered]{algorithm2e}
 %
@@ -183,7 +183,7 @@ Ainda existe um grande intervalo a ser explorado...
 \end{document}
 ```
 
-![Algoritmo de Teste](./figs/pseudo2.svg){width=70%}
+![Test Algorithm](./figs/pseudo2.svg){width=70%}
 
 ------
 
