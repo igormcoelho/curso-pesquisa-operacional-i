@@ -48,6 +48,7 @@ _**Última atualização:** Julho/2020 (Período ACE 2020.1)_
       - [ex1_marcone.py](./slides/examples-mip/ex1_marcone.py)
    * Exemplo Simulated Annealing para Mochila (com OptFrame FCore):
       - [FCore-KP-SA.zip](./exemplo-optframe/FCore-KP-SA.zip)
+   * Documentação do OptFrame no [readthedocs](https://optframe.readthedocs.io/en/latest)
 
 - Algumas Personalidades da Área (em construção):
     * [Brian Wilson Kernighan](https://en.wikipedia.org/wiki/Brian_Kernighan)
